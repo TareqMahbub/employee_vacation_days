@@ -1,0 +1,14 @@
+networks:
+  employee_vacation_days_network:
+
+services:
+  artisan:
+    container_name: employee_vacation_days_artisan
+    build:
+      context: .
+      dockerfile: dockerfiles/php.dockerfile
+    volumes:
+      - ./.:/var/www/html
+    entrypoint: ["php", "artisan"]
+    networks:
+      - employee_vacation_days_network
